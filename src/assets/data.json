@@ -1,0 +1,92 @@
+{
+  "data": [
+    {
+      "key": "common",
+      "title": "Registration Data",
+      "group": [
+        {
+          "key": "individualPerson",
+          "title": "Employee Details",
+          "group": [
+            {
+              "key": "firstname",
+              "title": "Company Name",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "key": "legalPerson",
+          "title": "Person to Notify Incase of Emergency",
+          "group": [
+            {
+              "key": "brandname",
+              "title": "Person Name",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "data2": [
+    {
+      "key": "common",
+      "title": "main fields",
+      "group": [
+        {
+          "key": "individualPerson",
+          "title": "Employee Person",
+          "group": [
+            {
+              "key": "firstname",
+              "title": "First Name",
+              "type": "text"
+            },
+            {
+              "key": "lastname",
+              "title": "Last Name",
+              "type": "text"
+            },
+            {
+              "key": "phone",
+              "title": "Phone Number",
+              "type": "text"
+            },
+            {
+              "key": "citizenshipCountry",
+              "title": "Country",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "key": "legalPerson",
+          "title": "Legal Person",
+          "group": [
+            {
+              "key": "brandname",
+              "title": "Brand Name",
+              "type": "text"
+            },
+            {
+              "key": "fullname",
+              "title": "Full Name",
+              "type": "text"
+            },
+            {
+              "key": "phone",
+              "title": "Phone",
+              "type": "text"
+            },
+            {
+              "key": "registrationCountry",
+              "title": "Country",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+<form *ngIf="filterForm" [formGroup]="filterForm" class="filter-form" (ngSubmit)="Onsubmit()">
+  <ng-container *ngTemplateOutlet="
+      recursiveList;
+      context: { $implicit: filterFields, formGroup: filterForm }
+    ">
+  </ng-container>
+  <span class="field-error"
+					*ngIf="filterForm?.hasError( 'required' )
+						&& filterForm?.dirty">
+					This is a required field.
+				</span>
+  <!-- <div *ngIf="filterForm.errors && (filterForm.dirty || filterForm.touched)" class="alert alert-danger">
+    <div [hidden]="!filterForm.errors.['required']">
+      Name is required
+    </div>
+  </div> -->
+  
+
+  <button type="submit" [disabled]="!filterForm.valid" class="btn btn-primary">
+    Save
+  </button>
+</form>
+
+<ng-template #recursiveList let-filterFields let-formGroup="formGroup">
+  <div class="form-group">
+    <ng-container *ngFor="let item of filterFields">
+      <p><b>{{ item.title }}</b></p>
+      <!-- <div *ngIf="filterFields.errors && filterFields.touched" class="alert alert-danger">
+        <div [hidden]="!filterFields.errors.required">filterFields is required</div>
+      </div> -->
+      <ng-container *ngIf="item.group; else default">
+        <div class="row pb-4">
+          <div [formGroup]="formGroup.get(item.key)">
+            <ng-container *ngTemplateOutlet="
+                recursiveList;
+                context: {
+                  $implicit: item.group,
+                  formGroup: formGroup.get(item.key)
+                }
+              ">
+            </ng-container>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #default>
+        <div class="p-fluid grid">
+          <div class="field col-12 md:col-4">
+            <span class="p-float-label">
+              <input [type]="item.type" [formControl]="formGroup.get(item.key)" pInputText />
+            </span>
+          </div>
+        </div>
+      </ng-template>
+    </ng-container>
+  </div>
+</ng-template>

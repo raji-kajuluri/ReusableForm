@@ -1,0 +1,23 @@
+
+<p-card header="Reuse-form" styleClass="main-card">
+  <div class=>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Company Details"
+      class="p-button-success mx-4"
+      (click)="Onemployess()"
+    ></button>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Employee Details"
+      class="p-button-info"
+      (click)="OnCompany()"
+    ></button>
+    <app-main-form [filterFields]="data"></app-main-form>
+  </div>
+</p-card>
+
